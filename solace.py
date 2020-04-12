@@ -27,7 +27,7 @@ def on_connect(client, userdata, flags, rc):
 
 # Callback when message is received
 def on_message(client, userdata, msg):
-    print(f'Message received on topic: {msg.topic}. Message: {msg.payload.decode()}')
+    # print(f'Message received on topic: {msg.topic}. Message: {msg.payload.decode()}')
     message_str = msg.payload.decode()
     client.message_received = True
     client.message_topic = msg.topic

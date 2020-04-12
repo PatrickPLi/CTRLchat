@@ -1,4 +1,5 @@
 from solace import *
+from motors import *
 
 import time
 
@@ -10,4 +11,12 @@ while True:
 
     client.message_received = False
     key = client.message_contents
-    print(key)
+    if key == 'w':
+        fwd()
+    elif key == 'a':
+        left()
+    elif key == 's':
+        back()
+    elif key == 'd':
+        right()
+
