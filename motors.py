@@ -11,10 +11,10 @@ servo_angle = 90
 def SetAngle(angle):
     duty = angle / 18 + 2
     GPIO.output(3, True)
-	pwm.ChangeDutyCycle(duty)
-	sleep(1)
-	GPIO.output(3, False)
-	pwm.ChangeDutyCycle(0)
+    pwm.ChangeDutyCycle(duty)
+    sleep(1)
+    GPIO.output(3, False)
+    pwm.ChangeDutyCycle(0)
 
 def fwd():
     print("Forward")
