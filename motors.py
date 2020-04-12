@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(3, GPIO.out)
+GPIO.setup(3, GPIO.OUT)
 pwm=GPIO.PWM(3, 50)
 pwm.start(0)
 
@@ -12,7 +12,7 @@ def SetAngle(angle):
     duty = angle / 18 + 2
     GPIO.output(3, True)
     pwm.ChangeDutyCycle(duty)
-    sleep(1)
+    sleep(0.1)
     GPIO.output(3, False)
     pwm.ChangeDutyCycle(0)
 
@@ -21,13 +21,16 @@ def fwd():
 
 def left():
     print("Left")
-    servo_angle -=5
+    global servo_angle
+    servo_angle += 10
     SetAngle(servo_angle)
-
+    print(servo_angle)
 def back():
     print("Backward")
 
 def right():
     print("Right")
-    servo_angle +=5
+    global servo_angle
+    servo_angle -= 10
     SetAngle(servo_angle)
+    print(servo_angle)
