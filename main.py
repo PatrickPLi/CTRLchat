@@ -10,13 +10,8 @@ while True:
         time.sleep(0.01)
 
     client.message_received = False
-    key = client.message_contents
-    if key == 'w':
-        fwd()
-    elif key == 'a':
-        left()
-    elif key == 's':
-        back()
-    elif key == 'd':
-        right()
-
+    # print(client.message_contents)
+    if client.message_topic == "throttle":
+        set_throttle(int(client.message_contents))
+    elif client.message_topic == "steering":
+        set_steering(int(client.message_contents))
