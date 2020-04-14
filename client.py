@@ -138,7 +138,6 @@ def decelerate():
     throttle_val -= 5
     if throttle_val < 1:
         throttle_val = 0
-    client.publish('throttle', payload=throttle_val)
     window.set_throttle(throttle_val)
 
 def left():
