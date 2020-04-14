@@ -7,7 +7,7 @@ from time import sleep
 # pwm.start(0)
 
 throttle = 0
-steering = 0
+steering = 50
 left_motor = 0
 right_motor = 0
 
@@ -16,8 +16,6 @@ def SetMotors(throttle, steering):
     #Don't have motors yet, so just using integers to represent speed of each motor. Will replace with GPIO later.
     global left_motor
     global right_motor
-    print("dosihfoishofieoiofiseoihf")
-    print(type(steering))
     left_motor = throttle
     right_motor = throttle
     if steering < 50:

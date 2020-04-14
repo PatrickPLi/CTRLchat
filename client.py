@@ -165,5 +165,7 @@ app = QApplication(sys.argv)
 window = MainWindow()
 window.show() # IMPORTANT!!!!! Windows are hidden by default.
 
+change_steering()
+change_throttle
 # Start the event loop.
 app.exec_()
