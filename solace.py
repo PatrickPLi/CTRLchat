@@ -22,7 +22,8 @@ def initialize():
 # Callback on connection
 def on_connect(client, userdata, flags, rc):
     print(f'Connected (Result: {rc})')
-    client.subscribe('direction')
+    client.subscribe('throttle')
+    client.subscribe('steering')
     client.publish('test_connect', payload='Connected')
 
 # Callback when message is received
