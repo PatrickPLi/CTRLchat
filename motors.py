@@ -1,10 +1,19 @@
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
-# GPIO.setmode(GPIO.BOARD)
-# GPIO.setup(3, GPIO.OUT)
-# pwm=GPIO.PWM(3, 50)
-# pwm.start(0)
+left1 = 24
+left2 = 23
+en = 25
+temp1=1
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(left1,GPIO.OUT)
+GPIO.setup(left2,GPIO.OUT)
+GPIO.setup(en,GPIO.OUT)
+GPIO.output(left1,GPIO.LOW)
+GPIO.output(left2,GPIO.LOW)
+p=GPIO.PWM(en,1000)
+p.start(25)
 
 throttle = 0
 steering = 50
@@ -18,6 +27,8 @@ def SetMotors(throttle, steering):
     global right_motor
     left_motor = throttle
     right_motor = throttle
+    GPIO.output(left1,GPIO.HIGH)
+    GPIO.output(left2,GPIO.LOW)
     if steering < 50:
         left_offset = steering/50
         left_motor = left_motor*left_offset
@@ -26,14 +37,9 @@ def SetMotors(throttle, steering):
         right_motor = right_motor*right_offset
 
     print("Left: {}    |    Right: {}".format(int(left_motor), int(right_motor)))
+    en.ChangeDutyCycle(int(left_motor));
 
-# def SetAngle(angle):
-#     duty = angle / 18 + 2
-#     GPIO.output(3, True)
-#     pwm.ChangeDutyCycle(duty)
-#     sleep(0.1)
-#     GPIO.output(3, False)
-#     pwm.ChangeDutyCycle(0)
+
 
 def set_throttle(val):
     global throttle
