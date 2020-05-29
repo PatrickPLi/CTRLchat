@@ -127,7 +127,7 @@ def change_throttle():
 def accelerate():
     print("w")
     global throttle_val
-    throttle_val += 20
+    throttle_val += 100
     if throttle_val > 99:
         throttle_val = 100
     window.set_throttle(throttle_val)
@@ -135,7 +135,7 @@ def accelerate():
 def decelerate():
     print("s")
     global throttle_val
-    throttle_val -= 20
+    throttle_val -= 100
     if throttle_val < 1:
         throttle_val = 0
     window.set_throttle(throttle_val)
@@ -143,18 +143,24 @@ def decelerate():
 def left():
     print("a")
     global steering_val
-    steering_val -= 30
+    steering_val = 0
     if steering_val < 1:
         steering_val = 0
+    window.set_steering(steering_val)
+    time.sleep(0.5)
+    steering_val = 50
     window.set_steering(steering_val)
 
 
 def right():
     print("d")
     global steering_val
-    steering_val += 30
+    steering_val = 100
     if steering_val > 99:
         steering_val = 100
+    window.set_steering(steering_val)
+    time.sleep(0.5)
+    steering_val = 50
     window.set_steering(steering_val)
 
 
