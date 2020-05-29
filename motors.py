@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
+forward = True
+
 left_fwd = 24
 left_bwd = 23
 left_spd = 25
@@ -35,6 +37,8 @@ GPIO.output(left_bwd,GPIO.HIGH)
 GPIO.output(right_fwd,GPIO.LOW)
 GPIO.output(right_bwd,GPIO.HIGH)
 
+forward = False
+
 def SetMotors(throttle, steering):
 
     #Don't have motors yet, so just using integers to represent speed of each motor. Will replace with GPIO later.
@@ -49,12 +53,17 @@ def SetMotors(throttle, steering):
     if steering > 50:
         right_offset = (100-steering)/50
         right_motor = right_motor*right_offset
+
+    if forward == False:
+        tmp = right_motor
+        right_motor = left_motor
+        left_motor = tmp
  
 
     OldMax = 100
     OldMin = 0
-    NewMax = 80
-    NewMin = 40
+    NewMax =100
+    NewMin = 60
     OldRange = (OldMax - OldMin)  
     NewRange = (NewMax - NewMin)  
     # NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
