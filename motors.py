@@ -37,7 +37,7 @@ def SetMotors(throttle, steering):
         right_motor = right_motor*right_offset
 
     print("Left: {}    |    Right: {}".format(int(left_motor), int(right_motor)))
-    en.ChangeDutyCycle(int(left_motor));
+    p.ChangeDutyCycle(int(left_motor));
 
 
 
