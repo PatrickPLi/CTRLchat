@@ -47,7 +47,7 @@ def SetMotors(throttle, steering):
     left_motor = throttle
     right_motor = throttle
 
-    left_motor = left_motor * 0.6
+    right_motor = right_motor * 0.6
 
     if steering < 50:
         left_offset = steering/50
@@ -65,7 +65,7 @@ def SetMotors(throttle, steering):
     OldMax = 100
     OldMin = 0
     NewMax = 100
-    NewMin = 0
+    NewMin = 30
     OldRange = (OldMax - OldMin)  
     NewRange = (NewMax - NewMin)  
     # NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
