@@ -30,6 +30,11 @@ steering = 50
 left_motor = 0
 right_motor = 0
 
+GPIO.output(left_fwd,GPIO.HIGH)
+GPIO.output(left_bwd,GPIO.LOW)
+GPIO.output(right_fwd,GPIO.HIGH)
+GPIO.output(right_bwd,GPIO.LOW)
+
 def SetMotors(throttle, steering):
 
     #Don't have motors yet, so just using integers to represent speed of each motor. Will replace with GPIO later.
@@ -37,10 +42,7 @@ def SetMotors(throttle, steering):
     global right_motor
     left_motor = throttle
     right_motor = throttle
-    GPIO.output(left_fwd,GPIO.HIGH)
-    GPIO.output(left_bwd,GPIO.LOW)
-    GPIO.output(right_fwd,GPIO.HIGH)
-    GPIO.output(right_bwd,GPIO.LOW)
+
     if steering < 50:
         left_offset = steering/50
         left_motor = left_motor*left_offset
