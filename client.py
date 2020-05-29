@@ -147,7 +147,7 @@ def left():
     if steering_val < 1:
         steering_val = 0
     window.set_steering(steering_val)
-    time.sleep(0.5)
+    time.sleep(0.2)
     steering_val = 50
     window.set_steering(steering_val)
 
@@ -159,7 +159,7 @@ def right():
     if steering_val > 99:
         steering_val = 100
     window.set_steering(steering_val)
-    time.sleep(0.5)
+    time.sleep(0.2)
     steering_val = 50
     window.set_steering(steering_val)
 
