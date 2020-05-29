@@ -47,8 +47,6 @@ def SetMotors(throttle, steering):
     left_motor = throttle
     right_motor = throttle
 
-    right_motor = right_motor * 0.6
-
     if steering < 50:
         left_offset = steering/50
         left_motor = left_motor*left_offset
@@ -56,11 +54,12 @@ def SetMotors(throttle, steering):
         right_offset = (100-steering)/30
         right_motor = right_motor*right_offset
 
-    if forward == False:
+    if forward == True:
         tmp = right_motor
         right_motor = left_motor
         left_motor = tmp
  
+    right_motot = right_motor * 0.6
 
     OldMax = 100
     OldMin = 0
@@ -74,6 +73,7 @@ def SetMotors(throttle, steering):
     if int(left_motor) == 0 and int(right_motor) == 0:
        left_motor_scaled = 0
        right_motor_scaled = 0
+
 
     print("Left: {}    |    Right: {}".format(int(left_motor_scaled), int(right_motor_scaled)))
     left_pwm.ChangeDutyCycle(int(left_motor_scaled))
