@@ -59,7 +59,7 @@ def SetMotors(throttle, steering):
         right_motor = left_motor
         left_motor = tmp
  
-    right_motor = right_motor * 0.6
+    right_motor = right_motor * 0.69
 
     OldMax = 100
     OldMin = 0
