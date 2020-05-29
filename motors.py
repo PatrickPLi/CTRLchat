@@ -48,10 +48,10 @@ def SetMotors(throttle, steering):
     right_motor = throttle
 
     if steering < 50:
-        left_offset = steering/50
+        left_offset = steering/30
         left_motor = left_motor*left_offset
     if steering > 50:
-        right_offset = (100-steering)/30
+        right_offset = (100-steering)/50
         right_motor = right_motor*right_offset
 
     if forward == True:
