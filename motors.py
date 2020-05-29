@@ -3,13 +3,13 @@ from time import sleep
 
 forward = True
 
-left_fwd = 24
-left_bwd = 23
-left_spd = 25
+left_fwd = 17
+left_bwd = 27
+left_spd = 22
 
-right_fwd = 17
-right_bwd = 27
-right_spd = 22
+right_fwd = 24
+right_bwd = 23
+right_spd = 25
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(left_fwd,GPIO.OUT)
@@ -59,7 +59,7 @@ def SetMotors(throttle, steering):
         right_motor = left_motor
         left_motor = tmp
  
-    right_motot = right_motor * 0.6
+    right_motor = right_motor * 0.6
 
     OldMax = 100
     OldMin = 0
