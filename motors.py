@@ -63,7 +63,7 @@ def SetMotors(throttle, steering):
 
     OldMax = 100
     OldMin = 0
-    NewMax = 100
+    NewMax = 150
     NewMin = 30
     OldRange = (OldMax - OldMin)  
     NewRange = (NewMax - NewMin)  
