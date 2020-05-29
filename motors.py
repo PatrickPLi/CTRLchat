@@ -24,8 +24,8 @@ GPIO.output(right_fwd,GPIO.LOW)
 GPIO.output(right_bwd,GPIO.LOW)
 left_pwm=GPIO.PWM(left_spd,1000)
 right_pwm=GPIO.PWM(right_spd,1000)
-right_pwm.start(25)
-left_pwm.start(25)
+right_pwm.start(0)
+left_pwm.start(0)
 
 throttle = 0
 steering = 50
@@ -47,7 +47,7 @@ def SetMotors(throttle, steering):
     left_motor = throttle
     right_motor = throttle
 
-    left_motor = left_motor * 0.8
+    left_motor = left_motor * 0.6
 
     if steering < 50:
         left_offset = steering/50
