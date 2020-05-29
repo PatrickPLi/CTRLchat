@@ -57,8 +57,8 @@ def SetMotors(throttle, steering):
     OldRange = (OldMax - OldMin)  
     NewRange = (NewMax - NewMin)  
     # NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
-    left_motor_scaled = (((left_motor - OldMin) * NewRange) / OldRange) + NewMin
-    right_motor_scaled = (((right_motor - OldMin) * NewRange) / OldRange) + NewMin
+    left_motor_scaled = ((((int)left_motor - OldMin) * NewRange) / OldRange) + NewMin
+    right_motor_scaled = ((((int)right_motor - OldMin) * NewRange) / OldRange) + NewMin
 
     print("Left: {}    |    Right: {}".format(int(left_motor_scaled), int(right_motor_scaled)))
     left_pwm.ChangeDutyCycle(int(left_motor_scaled))
